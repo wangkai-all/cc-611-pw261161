@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>签到 / 工单 投入归属分析</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header>
+    <h1>签到 / 工单 投入归属分析</h1>
+    <p>
+      签到与任务工单分开记录；有人同一时段切换两个任务或跨活动支援时，
+      归属器先拆重叠区，再交统计端算总时长与投入 —— 同一人的总时长不因重叠重复计数。
+      工单撤回后旧报告保留，并给出受影响范围。
+    </p>
+  </header>
+
+  <main>
+    <section class="controls" aria-label="操作区">
+      <label>
+        归属方法
+        <select id="method">
+          <option value="completed-ratio">按完成任务比例</option>
+          <option value="primary">按主责时间归属</option>
+        </select>
+      </label>
+      <button id="btn-analyze" type="button">分析原投入量</button>
+      <label>
+        待撤工单
+        <select id="revoke-target"></select>
+      </label>
+      <button id="btn-revoke" type="button">撤回一张工单</button>
+      <button id="btn-overlap" type="button">查看重叠拆分</button>
+      <button id="btn-reset" type="button" class="secondary">重置样例数据</button>
+    </section>
+
+    <section id="dataset" aria-label="原始数据">
+      <h2>原始数据（签到与工单分开记录）</h2>
+      <div id="dataset-body">加载中…</div>
+    </section>
+
+    <section id="result" data-evidence-result="idle" aria-label="业务结果区">
+      <h2>业务结果</h2>
+      <div id="result-body">尚未执行操作。</div>
+    </section>
+  </main>
+
+  <script src="/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+{
+  "name": "pointwise-delivery",
+  "version": "1.0.0",
+  "private": true,
+  "description": "签到/工单分离的投入归属分析：归属器拆重叠区，统计端算总时长与投入",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --test"
+  }
+}
